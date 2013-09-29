@@ -1,0 +1,54 @@
+=pod
+
+=head1 NAME
+
+Mail::Trash - interface to L<trash-mail.com|http://trash-mail.com>
+
+=head1 SYNOPSIS
+
+  use Mail::Trash::Inbox;
+
+  my $inbox = Mail::Trash::Inbox->new('test');
+  my @mails = $inbox->fetch_mails();
+
+  for my $mail (@mails) {
+      # fetch information and content
+      $mail->fetch();
+
+      # print information
+      say "sender:  ", $mail->sender();
+      say "subject: ", $mail->subject();
+      say "received on ", $mail->date(), " at ", $mail->time();
+
+      # print formatted content
+      my $formatter = HTML::FormatText::WithLinks->new();
+      say $formatter->parse($mail->content());
+
+      # delete mail after reading
+      $mail->delete();
+  }
+
+=head1 DESCRIPTION
+
+The modules provide access to the web inbox of C<trash-mail.com>. The mails
+can be delivered for a certain user/name and then individually fetched.
+
+This module originates from the L<onsale|https://github.com/8ware/onsale>
+project.
+
+=head2 Dependencies
+
+This module requires these other modules and libraries:
+
+  Carp
+  LWP::UserAgent
+
+  Common::Util::XML
+  XML::LibXML
+
+The C<Common::Util::XML> module can be found on
+L<github|https://github.com/8ware/Common-Util> while all other modules are
+available on CPAN.
+
+=cut
+
