@@ -1,0 +1,11 @@
+Changes
+Makefile.PL
+MANIFEST
+README.pod
+t/Mail-Trash-Inbox.t
+t/Mail-Trash-Mail.t
+t/Mail-Trash-Utils.t
+lib/Mail/Trash/Inbox.pm
+lib/Mail/Trash/Mail.pm
+lib/Mail/Trash/Utils.pm
+TODOs
